@@ -1,3 +1,27 @@
+# dl-optimizer-poc
+
+## Generate POC dataset
+```bash
+python ./data/generate_train_db.py
+```
+## Train POC FC model
+```bash
+python train.py \
+    model=poc_fc \
+    data=poc_pf \
+    processing_dir='./processing/train/pocfc/' \
+```
+## Test POC FC model
+```bash
+python test.py \
+    model=poc_fc \
+    data=poc_pf \
+    data.train=False \
+    +pl_trainer.deterministic=True \
+    checkpoint_path=$PWD'/processing/train/pocfc/lightning_logs/version_0/checkpoints/epoch\=99-step\=6199.ckpt' \
+    processing_dir='./processing/test/pocfc/' \
+```
+
 # hydra-pytorch-lightning-seed
 A Project Template Seed using Hydra, PyTorch and PyTorch-Lightning
 

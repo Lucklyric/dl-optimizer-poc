@@ -1,0 +1,8 @@
+# @package data
+_target_: data.dummy_data_module.POCDataModule
+train_batch_size: 128
+val_batch_size: 32
+train_num_workers: 4
+val_num_workers: 4
+train: True
+data_dir: /home/asun/codes/crd/dl-optimizer-poc/project/db.npz
